@@ -1,12 +1,12 @@
 ## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/tfont/PHP-/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+Object-oriented PHP core that is consistent, and not a framework
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Let's face it, PHP is massively inconsistent. It's also profoundly backward compatible with legacy versions of PHP that are based and originated from C. This means lots of procedural functionality and conversions mixed with modern OOP conversions - most commonly camel cases.
 
-### Markdown
+### Solution
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+Complete readable and transparent conventions that are purely Object-oriented.
 
 ```markdown
 Syntax highlighted code block
@@ -28,9 +28,6 @@ Syntax highlighted code block
 
 For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/tfont/PHP-/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
 
 ### Support or Contact
 
