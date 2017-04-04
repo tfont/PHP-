@@ -6,7 +6,7 @@ Let's face it, PHP is massively inconsistent. It's also profoundly backward comp
 
 ### Solution
 
-Complete readable and transparent conventions that are purely Object-oriented.
+Complete readable and transparent conventions that are purely object-oriented.
 
 ```markdown
 Syntax highlighted code block
