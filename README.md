@@ -1,4 +1,4 @@
-## Welcome to GitHub Pages
+## PHP++
 
 Object-oriented PHP core that is consistent, and not a framework
 
