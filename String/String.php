@@ -2,6 +2,12 @@
 
 namespace
 {
+    use function \strspn     as strspn;
+    use function \strcspn    as strcspn;
+    use function \strcmp     as strcmp;
+    use function \strcasecmp as strcasecmp;
+    use function \strncmp    as strncmp;
+
     final class String
     {
         /**
@@ -11,16 +17,16 @@ namespace
          * @link http://www.w3resource.com/php/function-reference/strspn.php
          * @link https://www.w3schools.com/php/func_string_strspn.asp
          *
-         * @param $subject
-         * @param $mask
-         * @param null $start
-         * @param null $length
+         * @param string $subject
+         * @param string $mask
+         * @param int    $start   Default: null
+         * @param int    $length  Default: null
          *
          * @return int
          */
         final public static function FindInitMaskLength($subject, $mask, $start = NULL, $length = NULL)
         {
-            return \strspn($subject, $mask, $start, $length);
+            return strspn($subject, $mask, $start, $length);
         }
 
         /**
@@ -30,16 +36,16 @@ namespace
          * @link http://www.w3resource.com/php/function-reference/strcspn.php
          * @link https://www.w3schools.com/php/func_string_strcspn.asp
          *
-         * @param $str1
-         * @param $str2
-         * @param null $start
-         * @param null $length
+         * @param string $str1
+         * @param string $str2
+         * @param int    $start  Default: null
+         * @param int    $length Default: null
          *
          * @return int
          */
         final public static function FindInitNotMaskLength($str1, $str2, $start = NULL, $length = NULL)
         {
-            return \strcspn($str1, $str2, $start, $length);
+            return strcspn($str1, $str2, $start, $length);
         }
 
         /**
@@ -47,14 +53,14 @@ namespace
          *
          * @link http://php.net/manual/en/function.strcmp.php
          *
-         * @param $str1
-         * @param $str2
+         * @param string $str1
+         * @param string $str2
          *
          * @return int
          */
         final public static function Compare($str1, $str2)
         {
-            return \strcmp($str1, $str2);
+            return strcmp($str1, $str2);
         }
 
         /**
@@ -62,14 +68,14 @@ namespace
          *
          * @link http://php.net/manual/en/function.strcasecmp.php
          *
-         * @param $str1
-         * @param $str2
+         * @param string $str1
+         * @param string $str2
          *
          * @return int
          */
         final public static function CompareCaseInsensitive($str1, $str2)
         {
-            return \strcasecmp($str1, $str2);
+            return strcasecmp($str1, $str2);
         }
 
         /**
@@ -77,15 +83,15 @@ namespace
          *
          * @link http://php.net/manual/en/function.strncmp.php
          *
-         * @param $str1
-         * @param $str2
-         * @param $len
+         * @param string $str1
+         * @param string $str2
+         * @param int    $len
          *
          * @return int
          */
         final public static function CompareFirstCharacters($str1, $str2, $len)
         {
-            return \strncmp($str1, $str2, $len);
+            return strncmp($str1, $str2, $len);
         }
     }
 }

@@ -4,7 +4,7 @@ Object-oriented PHP core that is consistent, and not a framework
 
 Let's face it, PHP is massively inconsistent. It's also profoundly backward compatible with legacy versions of PHP that are based and originated from C. This means lots of procedural functionality and conversions mixed with modern OOP conversions - most commonly camel cases.
 
-### Solution
+### Examples
 
 Complete readable and transparent conventions that are purely object-oriented.
 
@@ -26,9 +26,14 @@ Syntax highlighted code block
 [Link](url) and ![Image](src)
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+For more details see the [complete library](dsada) index where each method (function) contains an example.
 
+### Why use PHP++?
+
+* Very easy to install and use!
+* Consistent and easy to read/discover naming conventions
+* It's open source!
 
 ### Support or Contact
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+Having trouble? Leave an Issue! Don't be shy.
