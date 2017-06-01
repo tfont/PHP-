@@ -8,7 +8,7 @@ namespace
     use function \strcasecmp as strcasecmp;
     use function \strncmp    as strncmp;
 
-    final class String
+    final class String extends String_Extended
     {
         /**
          * Finds the length of the initial segment of a string consisting entirely of characters contained within a given mask.
