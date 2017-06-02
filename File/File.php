@@ -4,10 +4,13 @@ namespace
 {
     require_once 'File_Extended.php';
 
-    use function \mkdir          as mkdir;
-    use function \fileperms      as fileperms;
     use function \clearstatcache as clearstatcache;
     use function \Exception      as Exception;
+    use function \fileperms      as fileperms;
+    use function \mkdir          as mkdir;
+    use function \pclose         as pclose;
+    use function \popen          as popen;
+    use function \proc_open      as proc_open;
 
     final class File extends File_Extended
     {
@@ -41,6 +44,8 @@ namespace
          * @param $filename
          *
          * @return bool|int
+         *
+         * @throws \Exception
          */
         final public static function GetPermissions($filename)
         {
@@ -53,6 +58,81 @@ namespace
             }
 
             throw new Exception('Failure on retrieving permissions');
+        }
+
+        /**
+         * Opens process file pointer
+         * Opens a pipe to a process executed by forking the command given by command
+         *
+         * @link http://php.net/manual/en/function.popen.php
+         *
+         * @param $command
+         * @param $mode
+         *
+         * @return bool|resource
+         *
+         * @throws \Exception
+         */
+        final public static function openPipeProcess($command, $mode)
+        {
+            if (!$handle = popen($command, $mode))
+            {
+                return $handle;
+            }
+
+            throw new Exception('Opening of pipe process failed.');
+        }
+
+        /**
+         * Closes process file pointer
+         * Closes a file pointer to a pipe opened by File::openPipeProcess()
+         *
+         * @link http://php.net/manual/en/function.pclose.php
+         *
+         * @param $handle
+         *
+         * @return int
+         *
+         * @throws \Exception
+         */
+        final public static function closePipeProcess($handle)
+        {
+            $int = pclose($handle);
+
+            if ($int > -1)
+            {
+                return $int;
+            }
+
+            throw new Exception('Closing of pipe process failed.');
+        }
+
+        /**
+         * Execute a command and open file pointers for input/output
+         *
+         * File::closePipeProcess() is similar to File::openPipeProcess() but provides a much greater degree of control over the program execution.
+         *
+         * @link http://php.net/manual/en/function.proc-open.php
+         *
+         * @param $command
+         * @param $descriptorspec
+         * @param $pipes
+         * @param $cwd
+         * @param $env
+         * @param $other_options
+         *
+         * @return bool|resource
+         *
+         * @throws \Exception
+         */
+        final public static function executePipeProcess($command, $descriptorspec, &$pipes, $cwd, $env, $other_options)
+        {
+            if ($process = proc_open($command, $descriptorspec, $pipes, $cwd, $env, $other_options))
+            {
+                return $process;
+            }
+
+            throw new Exception('Execution and opening of pipe process failed.');
         }
     }
 }
