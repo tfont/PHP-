@@ -5,8 +5,10 @@ namespace
     require_once 'File_Extended.php';
 
     use function \clearstatcache as clearstatcache;
+    use function \dirname        as dirname;
     use function \Exception      as Exception;
     use function \fileperms      as fileperms;
+    use function \getcwd         as getcwd;
     use function \mkdir          as mkdir;
     use function \pclose         as pclose;
     use function \popen          as popen;
@@ -73,7 +75,7 @@ namespace
          *
          * @throws \Exception
          */
-        final public static function openPipeProcess($command, $mode)
+        final public static function OpenPipeProcess($command, $mode)
         {
             if (!$handle = popen($command, $mode))
             {
@@ -95,7 +97,7 @@ namespace
          *
          * @throws \Exception
          */
-        final public static function closePipeProcess($handle)
+        final public static function ClosePipeProcess($handle)
         {
             $int = pclose($handle);
 
@@ -125,7 +127,7 @@ namespace
          *
          * @throws \Exception
          */
-        final public static function executePipeProcess($command, $descriptorspec, &$pipes, $cwd, $env, $other_options)
+        final public static function ExecutePipeProcess($command, $descriptorspec, &$pipes, $cwd, $env, $other_options)
         {
             if ($process = proc_open($command, $descriptorspec, $pipes, $cwd, $env, $other_options))
             {
@@ -133,6 +135,35 @@ namespace
             }
 
             throw new Exception('Execution and opening of pipe process failed.');
+        }
+
+        /**
+         * Gets the current working directory
+         *
+         * @link http://php.net/manual/en/function.getcwd.php
+         *
+         * @return string
+         */
+        final public static function CurrentWorkingDirectory()
+        {
+            return getcwd();
+        }
+
+        /**
+         * Returns a parent directory's path
+         *
+         * Given a string containing the path of a file or directory, this function will return the parent directory's path that is levels up from the current directory.
+         *
+         * @link http://php.net/manual/en/function.dirname.php
+         *
+         * @param $path
+         * @param int $level
+         *
+         * @return string
+         */
+        final public static function DirectoryPath($path, $level = 1)
+        {
+            return dirname();
         }
     }
 }
