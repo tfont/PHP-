@@ -2,7 +2,7 @@
 
 Object-oriented PHP core that is consistent, and not a framework
 
-Let's face it, PHP is massively inconsistent. It's also profoundly backward compatible with legacy versions of PHP that are based and originated from C. This means lots of procedural functionality and conversions mixed with modern OOP conversions - most commonly camel cases.
+Let's face it, PHP is massively inconsistent. It's also profoundly backward compatible with legacy versions of PHP that are based and originated from C. This means lots of procedural functionality and conversions mixed with modern OOP conversions - most commonly camel cases. Also, not to forget the misleading and non-descriptive function naming.
 
 ### Examples
 
