@@ -8,7 +8,7 @@ namespace
     {
         final public static function isAssociative(array $array)
         {
-            return \_AssociativeArray::is_associative($array);
+            return \is_associative::is_associative($array);
         }
     }
 }
