@@ -7,6 +7,7 @@ namespace
     use function \strcmp     as strcmp;
     use function \strcasecmp as strcasecmp;
     use function \strncmp    as strncmp;
+    use function \ucwords    as ucwords;
 
     final class String extends String_Extended
     {
@@ -92,6 +93,20 @@ namespace
         final public static function CompareFirstCharacters($str1, $str2, $len)
         {
             return strncmp($str1, $str2, $len);
+        }
+
+        /**
+         * Uppercase the first character of each word in a string
+         *
+         * @link http://php.net/manual/en/function.ucwords.php
+         *
+         * @param $string
+         * @param string $delimiters
+         * @return string
+         */
+        final public static function UpperCaseWords($string, $delimiters = ' \t\r\n\f\v')
+        {
+            return ucwords($string, $delimiters);
         }
     }
 }
