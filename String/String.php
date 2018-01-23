@@ -102,11 +102,57 @@ namespace
          *
          * @param $string
          * @param string $delimiters
+         *
          * @return string
          */
         final public static function UpperCaseWords($string, $delimiters = ' \t\r\n\f\v')
         {
             return ucwords($string, $delimiters);
         }
+
+        /**
+         * Checks if all of the characters in the provided string text are hexadecimal 'digits'.
+         *
+         * @link http://php.net/manual/en/function.ctype-xdigit.php
+         *
+         * @param $text
+         *
+         * @return bool
+         */
+        final public static function isHexadecimalDigit($text)
+        {
+            return ctype_xdigit($text);
+        }
+
+        /**
+         * Checks if enter string is a hexadecimal color code by W3C standard.
+         *
+         * @param $colorCode
+         *
+         * @return bool
+         */
+        final public static function isColorHex($colorCode)
+        {
+            $colorCode = ltrim($colorCode, '#');
+
+            if (ctype_xdigit($colorCode) && (strlen($colorCode) == 6 || strlen($colorCode) == 3))
+            {
+                return TRUE;
+            }
+
+            return FALSE;
+        }
     }
 }
+
+// TODO:
+// ctype_​alnum
+// ctype_​alpha
+// ctype_​cntrl
+// ctype_​digit
+// ctype_​graph
+// ctype_​lower
+// ctype_​print
+// ctype_​punct
+// ctype_​space
+// ctype_​upper
