@@ -142,6 +142,21 @@ namespace
 
             return FALSE;
         }
+
+        /**
+         * Inserts HTML line breaks before all newlines in a string
+         *
+         * @link http://php.net/manual/en/function.nl2br.php
+         *
+         * @param $string
+         * @param bool $is_xhtml
+         *
+         * @return string
+         */
+        final public static function ConvertNewlineToBreak($string, $is_xhtml = TRUE)
+        {
+            return nl2br($string, $is_xhtml);
+        }
     }
 }
 
